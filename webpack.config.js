@@ -32,11 +32,14 @@ const paths = {
 module.exports = {
     mode: 'development', // режим работы: development - для разработки, production - для выкладывания на сервер
     devtool: 'inline-source-map', // что делать с исходниками @see https://habr.com/ru/post/509250/
-    entry: [paths.src + '/index.js'], // точка входа
+    entry: [paths.src + '/index.tsx'], // точка входа
     output: {
         path: paths.build, // куда класть бандл
         filename: '[name].bundle.js', // имя бандла
         publicPath: '/',
+    },
+    resolve: { // настройки для разрешения модулей
+        extensions: ['.tsx', '.ts', '.js'], // расширения файлов для автоматического разрешения
     },
     plugins: [
         new CleanWebpackPlugin(),
@@ -63,7 +66,16 @@ module.exports = {
                 exclude: /node_modules/,
                 use: ['babel-loader'],
             },
+            {   // добавить правила для обработки TypeScript, если это необходимо
+                test: /\.(ts|tsx)$/,
+                exclude: /node_modules/,
+                use: ['ts-loader'],
+            },
+            {   // правила для CSS, если это необходимо
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader'],
+            },
+            // Добавьте другие loaders здесь, если это необходимо
         ]
     }
 };
-

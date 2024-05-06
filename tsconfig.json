@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+      "target": "es5",                                 // Цель компиляции: ES5
+      "module": "esnext",                              // Используемая система модулей
+      "lib": ["dom", "dom.iterable", "esnext"],        // Библиотеки типов для включения
+      "allowJs": true,                                 // Разрешить JavaScript файлы
+      "skipLibCheck": true,                            // Пропускать проверку типов в .d.ts файлах
+      "esModuleInterop": true,                         // Включает совместимость с модулями ES6
+      "allowSyntheticDefaultImports": true,            // Разрешить импорт из модулей без дефолтного экспорта
+      "strict": true,                                  // Включить строгий режим
+      "forceConsistentCasingInFileNames": true,        // Требовать одинаковый регистр в именах файлов
+      "moduleResolution": "node",                      // Стратегия разрешения модулей
+      "resolveJsonModule": true,                       // Разрешить импорт JSON файлов
+      "isolatedModules": true,                         // Обрабатывать каждый файл как отдельный модуль
+      "noEmit": false,                                  // Не создавать выходные файлы
+      "jsx": "react"                                   // Поддержка JSX
+    },
+    "include": [
+      "src/**/*"                                       // Включить все файлы в папке src
+    ]
+  }
+  
